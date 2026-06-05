@@ -18,8 +18,19 @@ import logging
 from dotenv import load_dotenv
 import os
 
-logging.basicConfig(level=logging.INFO)
+import sys
+
+# Configure logging to stderr
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    stream=sys.stderr
+)
 logger = logging.getLogger(__name__)
+
+# Silence noisy loggers that might use stdout
+logging.getLogger('ooodev').setLevel(logging.WARNING)
+logging.getLogger('com.sun.star').setLevel(logging.WARNING)
 
 load_dotenv()
 
@@ -36,7 +47,7 @@ class AppContext:
             try:
                 self.loader = Lo.load_office(
                     connector=Lo.ConnectSocket(host="127.0.0.1", port=int(os.getenv("LIBREOFFICE_PORT", "2083"))),
-                    opt=Options(log_level=20)
+                    opt=Options(log_level=30)
                 )
             except Exception as e:
                 logger.error(f"Failed to connect to LibreOffice: {e}")
