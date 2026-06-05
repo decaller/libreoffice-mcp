@@ -35,7 +35,7 @@ class AppContext:
         if self.loader is None:
             try:
                 self.loader = Lo.load_office(
-                    connector=Lo.ConnectSocket(host="localhost", port=int(os.getenv("LIBREOFFICE_PORT", "2083"))),
+                    connector=Lo.ConnectSocket(host="127.0.0.1", port=int(os.getenv("LIBREOFFICE_PORT", "2083"))),
                     opt=Options(log_level=20)
                 )
             except Exception as e:

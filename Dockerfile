@@ -20,7 +20,7 @@ RUN /venv/bin/pip install -r requirements.txt fastapi uvicorn "mcp[cli]"
 COPY . .
 
 # Run LibreOffice headless in background and FastMCP SSE server in foreground
-RUN echo '#!/bin/bash\nsoffice --headless --accept="socket,host=localhost,port=2083;urp;" &\nsleep 3\n/venv/bin/mcp run libreoffice.py:mcp --transport sse\n' > /app/start.sh && chmod +x /app/start.sh
+RUN echo '#!/bin/bash\nsoffice --headless --accept="socket,host=localhost,port=2083;urp;" > /proc/1/fd/1 2>&1 &\nsleep 5\n/venv/bin/mcp run libreoffice.py:mcp --transport sse\n' > /app/start.sh && chmod +x /app/start.sh
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/app/start.sh"]
