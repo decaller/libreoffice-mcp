@@ -36,7 +36,7 @@ class AppContext:
             try:
                 self.loader = Lo.load_office(
                     connector=Lo.ConnectSocket(host="localhost", port=int(os.getenv("LIBREOFFICE_PORT", "2083"))),
-                    opt=Options(log_level="INFO")
+                    opt=Options(log_level=20)
                 )
             except Exception as e:
                 logger.error(f"Failed to connect to LibreOffice: {e}")

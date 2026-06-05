@@ -1,5 +1,6 @@
+pydantic
+pydantic-settings
+pydantic-core
+fastapi
 mcp
-uno
-ooodev
-typing
-contextlib
+ooo-dev-tools
