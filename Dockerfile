@@ -3,6 +3,8 @@ FROM python:3.11-slim
 RUN apt-get update && apt-get install -y \
     libreoffice \
     libreoffice-script-provider-python \
+    fonts-dejavu-core \
+    fonts-liberation \
     python3-venv \
     tini \
     && rm -rf /var/lib/apt/lists/*
