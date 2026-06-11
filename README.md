@@ -1,5 +1,9 @@
 # **LibreOffice MCP (WIP)**
 
+> [!NOTE]
+> This repository is a public fork of [WaterPistolAI/libreoffice-mcp](https://github.com/WaterPistolAI/libreoffice-mcp) hosted at [https://github.com/decaller/libreoffice-mcp](https://github.com/decaller/libreoffice-mcp).
+> It is integrated as a git submodule in the main project repository [hermesDIL](https://github.com/decaller/hermesDIL).
+
 ### Explanation of the Refactor
 
 #### **Why OooDev?**
